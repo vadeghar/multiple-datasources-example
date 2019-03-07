@@ -6,11 +6,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name = "EMPLOYEE")
+@Table(name = "EMPLOYEE", schema="test")
 public class Employee {
 	
+	public Employee() {}
+	
+	public Employee(Long id, Integer age, String name, Long countryId, String country) {
+		this.id = id;
+		this.age = age;
+		this.name = name;
+		this.countryId = countryId;
+		this.country = country;
+	}
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -18,6 +28,13 @@ public class Employee {
 	private Integer age;
 	@Column
 	private String name;
+	
+	@Column(name="COUNTRY_ID")
+	private Long countryId;
+	
+	@Transient
+	private String country;
+	
 	public Long getId() {
 		return id;
 	}
@@ -35,6 +52,18 @@ public class Employee {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Long getCountryId() {
+		return countryId;
+	}
+	public void setCountryId(Long countryId) {
+		this.countryId = countryId;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 	

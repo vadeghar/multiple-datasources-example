@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "COUNTRY")
+@Table(name = "COUNTRY", schema="store1")
 public class Country implements Serializable {
 	
 	@Id

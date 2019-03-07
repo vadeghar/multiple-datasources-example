@@ -44,7 +44,7 @@ public class TestDataSourceConfig {
                 .dataSource(dataSource)
                 .packages("com.multidatasoucres.test.model")
                 .persistenceUnit("secondDb")
-                .properties(singletonMap("hibernate.hbm2ddl.auto", "none"))
+                .properties(singletonMap("hibernate.hbm2ddl.auto", "update"))
                 .build();
     }
 
